@@ -1,0 +1,13 @@
+- insert:
+    - id: dsh-better-wechat-core
+      name: 'dsh-better-wechat/core'
+      config:
+        confirmReads: true
+    - id: dsh-better-wechat-stage-one
+      name: 'dsh-better-wechat/stage-one'
+    - id: dsh-better-wechat-read
+      name: 'dsh-better-wechat/read'
+    - id: dsh-better-wechat-tasks
+      name: 'dsh-better-wechat/tasks'
+    - id: dsh-better-wechat-preferences
+      name: 'dsh-better-wechat/preferences'

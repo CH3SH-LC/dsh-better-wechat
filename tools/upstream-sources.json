@@ -1,0 +1,11 @@
+{
+  "upstream_revision": "62503d76a0db069171cb4e42e87090ad285db489",
+  "upstream_license_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+  "upstream_notice_included": false,
+  "github_action_revisions": {
+    "checkout": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+    "setup-node": "949feb2413d6458794dcd2491c4babbbce0c15c1",
+    "setup-python": "5fda3b95a4ea91299a34e894583c3862153e4b97",
+    "upload-artifact": "cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+  }
+}

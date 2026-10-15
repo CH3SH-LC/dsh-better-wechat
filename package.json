@@ -1,0 +1,122 @@
+{
+  "name": "dsh-better-wechat",
+  "version": "0.6.0",
+  "private": true,
+  "type": "module",
+  "description": "本地优先的微信消息整理助手：把电脑微信聊天变成可检索、可筛选、可复盘的个人工作台，全程离线，免打扰群可一键忽略。",
+  "license": "MIT AND Apache-2.0",
+  "exports": {
+    ".": "./index.js",
+    "./core": "./components/core.js",
+    "./stage-one": "./components/stage-one.js",
+    "./read": "./components/read.js",
+    "./tasks": "./components/tasks.js",
+    "./preferences": "./components/preferences.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "0.2.0-rc.2",
+    "@deepseek-ai/schemastery": "~3.18.4"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    },
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    }
+  },
+  "files": [
+    ".editorconfig",
+    ".gitattributes",
+    ".github/ISSUE_TEMPLATE/bug_report.yml",
+    ".github/ISSUE_TEMPLATE/config.yml",
+    ".github/ISSUE_TEMPLATE/feature_request.yml",
+    ".github/pull_request_template.md",
+    ".github/workflows/ci.yml",
+    ".gitignore",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "LICENSES/Apache-2.0.txt",
+    "PRIVACY.md",
+    "README.en.md",
+    "README.md",
+    "SECURITY.md",
+    "THIRD_PARTY_NOTICES.md",
+    "collector/bootstrap.py",
+    "collector/daily_export.py",
+    "collector/export_records.py",
+    "collector/extract_local.py",
+    "collector/html_viewer.py",
+    "collector/open_latest.py",
+    "collector/requirements.txt",
+    "collector/selection.py",
+    "collector/wal_snapshot.py",
+    "components/core.js",
+    "components/preferences.js",
+    "components/read.js",
+    "components/stage-one.js",
+    "components/tasks.js",
+    "cordis.patch.yml",
+    "docs/ARCHITECTURE.md",
+    "docs/RELEASING.md",
+    "docs/TROUBLESHOOTING.md",
+    "examples/demo.py",
+    "index.js",
+    "lib/bridge.js",
+    "lib/consent.js",
+    "lib/tool-groups.js",
+    "lib/tools.js",
+    "lib/workflow.js",
+    "python/backend.py",
+    "python/bridge.py",
+    "python/collector.py",
+    "python/diagnostics.py",
+    "python/import.py",
+    "python/privacy.py",
+    "setup.py",
+    "tests/components.test.mjs",
+    "tests/consent.test.mjs",
+    "tests/privacy_release_check.py",
+    "tests/python/test_backend.py",
+    "tests/python/test_collector.py",
+    "tests/python/test_export_selection.py",
+    "tests/python/test_release.py",
+    "tests/python/test_release_experience.py",
+    "tests/python/test_setup.py",
+    "tests/python/test_wal_snapshot.py",
+    "tests/tools.test.mjs",
+    "tests/workflow.test.mjs",
+    "tools/check.py",
+    "tools/package.mjs",
+    "tools/release.py",
+    "tools/upstream-sources.json",
+    "tools/verify-installed-runtime.mjs",
+    "刷新微信记录.cmd",
+    "安装采集依赖.cmd",
+    "配置并导入.cmd"
+  ],
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "test:python": "python -m unittest discover -s tests/python -v",
+    "package": "node tools/package.mjs",
+    "check": "python tools/check.py",
+    "privacy": "python tests/privacy_release_check.py .",
+    "demo": "python examples/demo.py"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "dsh",
+    "wechat",
+    "local-data",
+    "privacy",
+    "evidence"
+  ]
+}
