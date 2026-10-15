@@ -3,8 +3,9 @@
 [中文说明（推荐阅读）](README.md) · [Architecture](docs/ARCHITECTURE.md) · [Privacy](PRIVACY.md) · [Contributing](CONTRIBUTING.md)
 
 Turn the WeChat conversations on your own computer into a private, searchable message workspace for
-[DeepSeek Harness](https://github.com/deepseek-ai) (DSH). Collection, indexing and search all happen
-locally — your chat content never leaves your machine.
+[DeepSeek Harness](https://github.com/deepseek-ai) (DSH). Collection, decryption, indexing and search
+all happen locally: your WeChat database, its decrypted copies and the full index never leave your
+machine. Only the messages selected for one analysis are handed to the model you configured in DSH.
 
 This is an independent project, not an official WeChat or DeepSeek product.
 
@@ -13,7 +14,7 @@ This is an independent project, not an official WeChat or DeepSeek product.
 - **Ask for a message in plain language** — by person, group, date or keyword, with original text and context.
 - **Get drafts of what you owe people** — promises, owners and deadlines collected from your chats, each tied to its source message.
 - **Ignore muted groups in one word** — skip the noisy groups you already silenced; unclear state is never treated as "not muted".
-- **Stay local** — no uploads, no message sending, no writing to WeChat, no reading of image, voice, video or file bodies.
+- **Local first, on demand sharing** — the database, index and full history stay on your machine; only the text this analysis actually needs goes to your DSH model. Use a local model if you want nothing to leave at all. The plugin itself never sends messages, writes to WeChat or reads image, voice, video or file bodies.
 
 ## Getting started
 
