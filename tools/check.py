@@ -9,7 +9,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def failure_tail(result, limit=20):
+def failure_tail(result, limit=200):
     """Bounded, redacted tail of a failed check so CI output stays diagnosable.
 
     The full output is never published: only the last lines, with the repository
