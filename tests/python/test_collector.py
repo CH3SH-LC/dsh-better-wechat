@@ -64,7 +64,10 @@ class CollectorContract(unittest.TestCase):
             "status": "complete_with_warnings", "account_dir": str(self.account),
             "run_dir": str(snapshot), "run_id": "synthetic-run", "messages": 1,
         }), encoding="utf-8")
-        return snapshot
+        # The collector always reports a resolved snapshot path; expectations must
+        # be resolved too, or macOS (/var -> /private/var) and Windows short-name
+        # runners compare two spellings of the same directory.
+        return snapshot.resolve()
 
     def test_unknown_private_config_field_fails_closed(self):
         self.assertEqual(collector._config(self.state), {"account_dir": "", "data_root": ""})
