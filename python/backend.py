@@ -263,6 +263,12 @@ def contacts_mute_flags(root, name="contacts.json"):
     still means "unknown" for every conversation.
     """
     try:
+        # Resolve the root before the containment test: on macOS the temporary
+        # root (/var/...) resolves to /private/var/..., and on some Windows
+        # runners it resolves to an 8.3 short name. Comparing a resolved child
+        # against an unresolved root would silently report "unknown" for a
+        # perfectly readable sidecar.
+        root = Path(root).expanduser().resolve()
         path = root / name
         if not path.is_file() or not path.resolve().is_relative_to(root):
             return None

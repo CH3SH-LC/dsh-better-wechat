@@ -54,8 +54,14 @@ def _state(path):
 
 
 def _child(state, name):
-    result = (state / name).resolve()
-    if result == state or state not in result.parents:
+    # Resolve the root here as well as the child. Callers legitimately pass the
+    # raw CLI state path, and on macOS (/var -> /private/var) or on Windows
+    # runners (8.3 short names) the resolved child is not relative to an
+    # unresolved root. Comparing resolved-to-resolved keeps the escape guard
+    # intact without rejecting a perfectly private state directory.
+    root = Path(state).expanduser().resolve()
+    result = (root / name).resolve()
+    if result == root or root not in result.parents:
         raise CollectorError("COLLECTOR_PRIVATE_STATE_REQUIRED")
     return result
 

@@ -473,8 +473,11 @@ def _files(source):
         missing.append('message/message_<number>.db')
     if missing:
         raise SnapshotError('Required databases missing: ' + ', '.join(missing))
+    # Resolve before the containment test: an unresolved account root (macOS
+    # /var, Windows short names) is not a parent of its own resolved children.
+    resolved_source = source.resolve()
     for path in files:
-        if source not in path.resolve().parents:
+        if resolved_source not in path.resolve().parents:
             raise SnapshotError('Source database resolves outside the selected account')
     return files
 

@@ -76,7 +76,7 @@ class OnboardingTests(unittest.TestCase):
         (run / "export/index.html").write_text("<p>Synthetic text</p>")
         pointer = self.root / "latest.json"
         pointer.write_text(json.dumps({"run_dir": str(run), "status": "complete"}))
-        self.assertEqual(viewer.latest_page(self.root), run / "export/index.html")
+        self.assertEqual(viewer.latest_page(self.root), (run / "export/index.html").resolve())
         pointer.write_text(json.dumps({"run_dir": str(self.root.parent), "status": "complete"}))
         with self.assertRaises(ValueError):
             viewer.latest_page(self.root)
